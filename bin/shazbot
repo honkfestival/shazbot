@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'cinch'
+require 'shazbot'
+
+shazbot = Cinch::Bot.new do
+  configure do |c|
+    c.load Shazbot.config
+    c.plugins.plugins = Shazbot.plugins
+  end
+end
+
+shazbot.start

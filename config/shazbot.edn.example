@@ -1,0 +1,10 @@
+;;  in edn, comments start with ;
+;;  whitespace is irrelevant, commas are considered whitespace
+
+{
+  :nick "ShazBot"              ; your bot's name
+  :realname ""                 ; your own name (it's only polite)
+  :modes ["B" "i"]             ; on some servers, +B means bot
+  :server "irc.freenode.org"
+  :channels ["#cinch-bots"]
+}
