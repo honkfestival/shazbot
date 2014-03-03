@@ -9,7 +9,7 @@ module Shazbot
   DATA_DIR   = File.expand_path('../../data',   __FILE__)
 
   def plugins
-    @plugins ||= Shazbot::Plugins.constants.map{|c| Shazbot::Plugins.const_get("Shazbot::Plugins::#{c}")}
+    @plugins ||= Shazbot::Plugins.constants.map{|c| Shazbot::Plugins.const_get(c)}
   end
 
   def config(filename = 'shazbot.edn')
