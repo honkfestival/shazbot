@@ -25,7 +25,7 @@ Tao.
 
 But do not program in COBOL if you can avoid it.
 TAO
-    assert_equal expected.chomp, @tao['chapter 1.2']
+    assert_equal @tao['chapter 1.2'], expected.chomp
   end
 
   def test_with_period_only
@@ -38,7 +38,7 @@ he exclaimed:
      "I don't know whether I am Turing dreaming that I am a machine,
      or a machine dreaming that I am Turing!"
 TAO
-    assert_equal expected.chomp, @tao['chapter2.2']
+    assert_equal @tao['chapter2.2'], expected.chomp
   end
 
   def test_numbers_with_period
@@ -50,7 +50,7 @@ Does a good teacher overlook even the most humble student?
 Does a good father allow a single child to starve?
 Does a good programmer refuse to maintain his code?
 TAO
-    assert_equal expected.chomp, @tao['5.4']
+    assert_equal @tao['5.4'], expected.chomp
   end
 
   def test_no_period_or_space
@@ -70,7 +70,7 @@ amusement from its endless gyrations?   Do you not enjoy the
 untroubled ease of programming beneath its sheltering branches?
 Why are you bothered by its uselessness?"
 TAO
-    assert_equal expected.chomp, @tao['71']
+    assert_equal @tao['71'], expected.chomp
   end
 
   def test_random_section
@@ -83,8 +83,25 @@ TAO
   end
 
   def test_search
-    assert_equal @tao.search('googly moogly'), []
-    assert_equal @tao.search('branches'), [:book7chapter1]
-    assert_equal @tao.search('book'), [:book1, :book2, :book3, :book4, :book5, :book6, :book7, :book8, :book9]
+    branches = <<-TAO
+                                7.1
+
+A novice asked the master:  "In the east there is a great
+tree-structure that men call 'Corporate Headquarters'.  It is bloated
+out of shape with vice presidents and accountants.  It issues a
+multitude of memos, each saying 'Go, Hence!' or 'Go, Hither!' and
+nobody knows what is meant.  Every year new names are put onto the
+branches, but all to no avail.  How can such an unnatural entity be?"
+
+The master replied:  "You perceive this immense structure and are
+disturbed that it has no rational purpose.  Can you not take
+amusement from its endless gyrations?   Do you not enjoy the
+untroubled ease of programming beneath its sheltering branches?
+Why are you bothered by its uselessness?"
+TAO
+
+    assert_equal @tao['googly moogly'], 'The Tao is silent.'
+    assert_equal @tao['branches'], branches.chomp
+    assert_equal @tao['book'], ['Book 1', 'Book 2', 'Book 3', 'Book 4', 'Book 5', 'Book 6', 'Book 7', 'Book 8', 'Book 9']
   end
 end

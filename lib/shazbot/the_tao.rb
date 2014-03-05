@@ -44,7 +44,7 @@ class Shazbot::TheTao
   end
 
   def key_to_text(entry)
-    match = /:book(?<book>\d)(?::chapter(?<chapter>\d))?/.match entry
+    match = /book(?<book>\d)(?:chapter(?<chapter>\d))?/.match entry.to_s
     return "Book #{match['book']}" unless match['chapter']
     "#{match['book']}.#{match['chapter']}"
   end
