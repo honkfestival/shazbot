@@ -17,7 +17,7 @@ class Shazbot::TheTao
     case
       when result.empty? then 'The Tao is silent.'
       when result.count == 1 then @tao[result.first]
-      else result.map{|key| key_to_text(key)}
+      else result.map{|key| key_to_text(key)}.join(', ')
     end
   end
 

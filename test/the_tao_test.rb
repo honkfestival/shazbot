@@ -102,6 +102,6 @@ TAO
 
     assert_equal @tao['googly moogly'], 'The Tao is silent.'
     assert_equal @tao['branches'], branches.chomp
-    assert_equal @tao['book'], ['Book 1', 'Book 2', 'Book 3', 'Book 4', 'Book 5', 'Book 6', 'Book 7', 'Book 8', 'Book 9']
+    assert_equal @tao['book'], 'Book 1, Book 2, Book 3, Book 4, Book 5, Book 6, Book 7, Book 8, Book 9'
   end
 end
