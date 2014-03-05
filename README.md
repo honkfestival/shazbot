@@ -20,7 +20,7 @@ ShazBot comes with several plugins:
 
 **Hello** - Say `!hello` to ShazBot!
 
-**The Tao** - ShazBot can recite entries from [The Tao of Programming](http://www.canonical.org/~kragen/tao-of-programming.html) with e.g. `!tao book 2 chapter 2`.
+**The Tao** - ShazBot can recite entries from [The Tao of Programming](http://www.canonical.org/~kragen/tao-of-programming.html) with e.g. `!tao book 2 chapter 2`. ShazBot can also produce random sections (`!tao random`) or search the text (`!tao branches`).
 
 ## Contributing
 
