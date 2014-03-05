@@ -14,9 +14,9 @@ class Shazbot::Plugins::TheTao
   end
 
   match /tao (.+)/i
-  def execute(m, section = nil)
+  def execute(m, query = nil)
     m.reply ' '
-    tao[section].split("\n").each do |line|
+    tao[query].split("\n").each do |line|
       m.reply "#{line} "
       sleep 2 if line.empty?
     end

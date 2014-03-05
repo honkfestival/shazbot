@@ -6,11 +6,7 @@ class TheTaoTest < MiniTest::Unit::TestCase
   end
 
   def test_silence
-    assert_equal "The Tao is silent.", @tao['anything']
-  end
-
-  def test_title
-    assert_equal "The Tao Of Programming", @tao['title']
+    assert_equal "The Tao is silent.", @tao[nil]
   end
 
   def test_with_letters_period_and_space
@@ -78,12 +74,17 @@ TAO
   end
 
   def test_random_section
-    random = @tao[nil]
-
-    refute_equal random, @tao['anything']
+    random = @tao['random']
+    refute_equal random, @tao[nil]
     refute_equal random, @tao['title']
     refute_equal random, @tao['credits']
     refute_equal random, @tao['toc']
     refute random.empty?
+  end
+
+  def test_search
+    assert_equal @tao.search('googly moogly'), []
+    assert_equal @tao.search('branches'), [:book7chapter1]
+    assert_equal @tao.search('book'), [:book1, :book2, :book3, :book4, :book5, :book6, :book7, :book8, :book9]
   end
 end
